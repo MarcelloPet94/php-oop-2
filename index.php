@@ -53,7 +53,7 @@ $listaSpettacoli = [
 function maxOrario($lista) {
     
     $max = $lista[0]->ora;
-    $durata;
+    $durata = 0;
 
  
     for($i = 0; $i < count($lista); $i++)
@@ -74,7 +74,7 @@ function maxOrario($lista) {
     $somma = ($max + $durata);
     if($somma > 24) $somma = $somma - $max;
     
-    echo '<h2>Orario ultimo spettacolo: ' . $somma . '<br>';
+    echo '<h2>Orario fine proiezioni: ' . $somma . '<br>';
     
     /* 
     24 + 1.53 = 25.53
