@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__.'./Sala.php';
+require_once __DIR__.'/Sala.php';
 
 class Effect extends Sala {
     

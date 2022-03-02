@@ -13,9 +13,4 @@ class Film {
         $this->attori = $_attori;
     }   
     
-
-    public function addAttori($_attore){
-        $this->attori[] = $_attore;
-    }
-
 }
