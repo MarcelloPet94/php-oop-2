@@ -25,10 +25,11 @@ $listaAttori = [
 $tuttiFilm = [];
 $tuttiFilm = [
     
-    new Film('Le ali della libertà', 'Drammatico', '2:16:41', $listaAttori),
-    new Film('Donnie Darko', 'Strano', '1:53:00', $listaAttori)
+    new Film('Le ali della libertà', 'Drammatico',2.16 , $listaAttori),
+    new Film('Donnie Darko', 'Strano',1.53 , $listaAttori)
     
 ];
+
 
 $tutteSale = [
 
@@ -41,16 +42,55 @@ $tutteSale = [
 
 $listaSpettacoli = [
     
-    new Spettacolo("20-03-2020", "16:00", $tuttiFilm[0], $tutteSale[1]),
-    new Spettacolo("20-03-2020", "21:00", $tuttiFilm[1], $tutteSale[2]),
-    new Spettacolo("20-03-2020", "00:00", $tuttiFilm[1], $tutteSale[3]),
-    new Spettacolo("20-03-2020", "16:00", $tuttiFilm[0], $tutteSale[1]),
-    new Spettacolo("20-03-2020", "21:00", $tuttiFilm[1], $tutteSale[2]),
-    new Spettacolo("20-03-2020", "00:00", $tuttiFilm[1], $tutteSale[3]),    
+    new Spettacolo("20-03-2020", 16.00, $tuttiFilm[0], $tutteSale[1]),
+    new Spettacolo("20-03-2020", 24.00, $tuttiFilm[1], $tutteSale[2]),
+    new Spettacolo("20-03-2020", 21.00, $tuttiFilm[1], $tutteSale[2]),
+    new Spettacolo("22-03-2020", 24.00, $tuttiFilm[1], $tutteSale[3]) 
 
 ];
+    
+/* 
+
+un giorno
+prendo ultimo array 
+ottieni l'orario dell'ultimo array
+somma a quest'orario la durata del film 
+
+*/
+
+function maxOrario($lista) {
+    
+    $max = $lista[0]->ora;
+    $durata;
+
+ 
+    for($i = 0; $i < 3; $i++)
+    {
+        if($lista[$i]->ora > $max && $lista[$i]->data == "20-03-2020") 
+        $max = $lista[$i]->ora;
+    }
+
+    for($i = 0; $i < 3; $i++)
+    {
+        if($lista[$i]->ora == $max) 
+        $durata = $lista[$i]->film->durata;
+    }
+    
+    $somma = ($max + $durata);
+    if($somma > 24) $somma = $somma - $max;
+    
+    echo '<h2>Orario ultimo spettacolo: ' . $somma . '<br>';
+    
+    /* 
+    24 + 1.53 = 25.53
+    25.53 - 24 = 1.53
+    */
+}
+
+maxOrario($listaSpettacoli);
 
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -99,9 +139,14 @@ foreach ($listaSpettacoli as $key => $spettacolo) {
         $totale++;
     }
 
+    if($spettacolo->data == "20-03-2020") {
+        
+    }
+
 }
 
 echo '<h2>Totale spettacoli per ' . $tuttiFilm[1]->titolo . ': ' . $totale;
+
 
 ?>
 
