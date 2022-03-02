@@ -48,15 +48,7 @@ $listaSpettacoli = [
     new Spettacolo("22-03-2020", 24.00, $tuttiFilm[1], $tutteSale[3]) 
 
 ];
-    
-/* 
 
-un giorno
-prendo ultimo array 
-ottieni l'orario dell'ultimo array
-somma a quest'orario la durata del film 
-
-*/
 
 function maxOrario($lista) {
     
@@ -64,13 +56,16 @@ function maxOrario($lista) {
     $durata;
 
  
-    for($i = 0; $i < 3; $i++)
+    for($i = 0; $i < count($lista); $i++)
     {
+
         if($lista[$i]->ora > $max && $lista[$i]->data == "20-03-2020") 
         $max = $lista[$i]->ora;
+        
+        
     }
 
-    for($i = 0; $i < 3; $i++)
+    for($i = 0; $i < count($lista); $i++)
     {
         if($lista[$i]->ora == $max) 
         $durata = $lista[$i]->film->durata;
