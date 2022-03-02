@@ -50,7 +50,6 @@ $listaSpettacoli = [
 
 ];
 
-var_dump($listaSpettacoli[1]);
 ?>
 
 <!DOCTYPE html>
@@ -70,11 +69,12 @@ var_dump($listaSpettacoli[1]);
 foreach ($tutteSale as $key => $sala) {
     echo '<h2>Nome sala: ' . $sala->nome . '</h2>';
     echo '<h2>Display: ' . $sala->display . '</h2>';
+    echo '<h2>n.Posti: ' . $sala->posti . '</h2>';
 
     if($sala->effetti != null) {
-
+        echo '<span> Effetti: </span>';
         foreach ($sala->effetti as $key => $effetto) {
-            echo '<p>' . $effetto . '</p>';
+            echo '<span>' . $effetto . '</span>' . ', ';
         }
 
     }
@@ -87,7 +87,7 @@ $vuoto = 0;
 foreach ($tutteSale as $key => $posti) {
     $vuoto += $posti->posti;
 }
-echo '<h1>Totale posti complessivi: ' . $vuoto . '<h1>';
+echo '<h1>Totale posti cinema: ' . $vuoto . '<h1>';
 
 /* 3 */
 
